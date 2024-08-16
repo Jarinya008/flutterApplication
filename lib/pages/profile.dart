@@ -166,8 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
     var config = await Configuration.getConfig();
     var url = config['apiEndpoint'];
 
-    var res = await http.delete(
-        Uri.parse('http://192.168.139.78:3000/customers/${widget.idx}'));
+    var res = await http.delete(Uri.parse('$url/customers/${widget.idx}'));
     log(res.statusCode.toString());
 
     if (res.statusCode == 200) {
@@ -224,8 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
     };
     // Not using the model, use jsonEncode() and jsonDecode()
     try {
-      var res = await http.put(
-          Uri.parse('http://192.168.139.78:3000/customers/${widget.idx}'),
+      var res = await http.put(Uri.parse('$url/customers/${widget.idx}'),
           headers: {"Content-Type": "application/json; charset=utf-8"},
           body: jsonEncode(json));
       log(res.body);
@@ -267,8 +265,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<void> loadDataAsync() async {
     var config = await Configuration.getConfig();
     var url = config['apiEndpoint'];
-    var res = await http
-        .get(Uri.parse('http://192.168.139.78:3000/customers/${widget.idx}'));
+    var res = await http.get(Uri.parse('$url/customers/${widget.idx}'));
     log(res.body);
     customerIdxGetResponse = customerIdxGetResponseFromJson(res.body);
     log(jsonEncode(customerIdxGetResponse));

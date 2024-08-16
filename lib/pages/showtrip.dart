@@ -236,7 +236,7 @@ class _ShowtripPageState extends State<ShowtripPage> {
   goToTripPage(int idx) {}
 
   void getTrips(String? zone) {
-    http.get(Uri.parse('http://192.168.139.78:3000/trips')).then(
+    http.get(Uri.parse('$url/trips')).then(
       (value) {
         trips = tripGetResponseFromJson(value.body);
         List<TripGetResponse> filteresTrips = [];
@@ -257,9 +257,9 @@ class _ShowtripPageState extends State<ShowtripPage> {
 
   Future<void> loadDataAsync() async {
     var config = await Configuration.getConfig();
-    url = config['API_Endpoint'];
+    url = config['apiEndpoint'];
 
-    var res = await http.get(Uri.parse('http://192.168.139.78:3000/trips'));
+    var res = await http.get(Uri.parse('$url/trips'));
     log(res.body);
     trips = tripGetResponseFromJson(res.body);
     log(trips.length.toString());

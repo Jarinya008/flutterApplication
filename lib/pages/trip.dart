@@ -89,8 +89,7 @@ class _TripPageState extends State<TripPage> {
   Future<void> loadDataAsync() async {
     var config = await Configuration.getConfig();
     url = config['apiEndpoint'];
-    var res = await http
-        .get(Uri.parse('http://192.168.139.78:3000/trips/${widget.idx}'));
+    var res = await http.get(Uri.parse('$url/trips/${widget.idx}'));
     log(res.body);
     trip = tripIdxGetResponseFromJson(res.body);
   }

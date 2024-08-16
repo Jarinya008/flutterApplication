@@ -174,7 +174,7 @@ class _RegisterPageState extends State<RegisterPage> {
         password: passNoCtl.text);
 
     http
-        .post(Uri.parse("http://192.168.139.78:3000/customers"),
+        .post(Uri.parse("$url/customers"),
             headers: {"Content-Type": "application/json; charset=utf-8"},
             // Send json string of object model
             body: customerPostReqToJson(req))
