@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/pages/login.dart';
+import 'package:flutter_application_2/pages/showtrip.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //theme: ThemeData(useMaterial3: false),
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: ShowtripPage(
+        cid: 15,
+      ),
     );
   }
 }
